@@ -1,0 +1,27 @@
+CC	=g++  -pthread -g
+#CC	=cc -pthread
+kgview	: kgview.o kgviewCallbacks.o main.o rdwrfuns.o checkimport.o cameradia.o makealbum.o gpinterface.o
+	 $(CC) -o kgview kgview.o kgviewCallbacks.o main.o  rdwrfuns.o checkimport.o  cameradia.o   makealbum.o gpinterface.o \
+	-I$(KULINA)/include $(KULINA)/lib/libkulina.a -L$(KULINA)/lib \
+	-lGraphicsMagick  -L$(KULINA)/lib -lGraphicsMagickWand -L/usr/X11R6/lib -lX11 -lXext -lm -lpthread \
+	-lz -lbz2 -lGL  -lgphoto2 -lgphoto2_port -lpng -ljpeg
+kgview.o	: kgview.c  images.c
+	 $(CC) -c kgview.c
+kgviewCallbacks.o	: kgviewCallbacks.c 
+	 $(CC) -c kgviewCallbacks.c
+main.o	: main.c 
+	 $(CC) -c main.c
+rdwrfuns.o	: rdwrfuns.c 
+	 $(CC) -c rdwrfuns.c
+checkimport.o	: checkimport.c 
+	 $(CC) -c checkimport.c
+cameradia.o	: cameradia.c 
+	 $(CC) -c cameradia.c
+makealbum.o	: makealbum.c 
+	 $(CC) -c makealbum.c
+gpinterface.o	: gpinterface.c 
+	 $(CC) -c gpinterface.c
+clean	:  
+	   rm -f *.o kgview
+install	:  kgview
+	 mv kgview $(KULINA)/bin/

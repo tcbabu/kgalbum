@@ -1,0 +1,7 @@
+'kgalbum' is photo album for Linux. Built using 'kulinagraphics' 
+(www.facebook.com/kulinagraphics) depends on 'gphoto2' for its
+camera interface. Kulina Graphics depends on 'GraphicMagick' for
+its image processing capbilities hence depends on 'GraphicMagick'
+and its dependencies. Kgalbun and Kulina Graphics are free software
+and distributed under GPL. Source Code is available from
+SourceForge (https://www.sourceforge.net/projects/kulinagraphics).
