@@ -1,0 +1,10 @@
+[Desktop Entry]
+Exec=/usr/bin/kgalbum
+Name=Photo Album
+Comment= Kulina Digital Album
+Keywords=camera;album
+Type=Application
+Icon=/usr/share/kgalbum/kgalbum.png
+Terminal=false
+StartupNotify=false
+Categories=Accessories;Utility;graphics;

@@ -1,0 +1,18 @@
+export LD_CONFIG_PATH=$LD_CONFIG_PATH:$KULINA/lib
+export LDFLAGS=-L$KULINA/lib
+echo $LDFLAGS
+export CFLAGS=-I$KULINA/include
+export CPPFLAGS=-I$KULINA/include
+echo $CFLAGS
+echo $PKG_CONFIG_PATH
+echo "$X11_LIBS"
+echo "$X11_CFLAGS"
+tar xf libgphoto2-2.5.10.tar.bz2
+cd libgphoto2-2.5.10
+echo "Configuring gphoto2 "
+./configure --prefix=$KULINA --enable-static --disable-shared --with-libexif=no >out
+make -j4 
+make -j4 install 
+cd ..
+rm -rf libgphoto2-2.5.10
+
