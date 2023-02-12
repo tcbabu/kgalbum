@@ -42,7 +42,12 @@ install	: kgalbum/kgalbum
 		mkdir -p /usr/share/kgalbum
 		install -m 644  kgalbum.png /usr/share/kgalbum/kgalbum.png
 		install -m 644  kgalbum.desktop /usr/share/applications
+tarball	: TARBALL/kgalbum
+	  mv TARBALL kgalbum-1.0
+	  tar czf kgalbum-1.0.tgz kgalbum-1.0
+	  mv kgalbum-1.0 TARBALL
 clean	:
 	 rm -rf lib/* share/* bin/* man/*
 	$(MAKE) -C OpenSource clean
 	$(MAKE) -C kgalbum clean
+	 rm -f kgalbum-1.0.tgz

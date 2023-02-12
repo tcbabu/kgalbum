@@ -10,6 +10,7 @@ kgalbum	: kgview.o kgviewCallbacks.o main.o rdwrfuns.o checkimport.o cameradia.o
 	-I$(KULINA)/include -L$(KULINA)/lib \
 	$(KULINA)/lib/libgphoto2.a $(KULINA)/lib/libgphoto2_port.a \
 	-lltdl -dl
+	 cp kgalbum $(KULINA)/TARBALL
 #	$(KULINA)/lib/libltdl.a -dl
 kgview.o	: kgview.c  images.c
 	 $(CC) -c kgview.c
@@ -27,7 +28,10 @@ makealbum.o	: makealbum.c
 	 $(CC) -c makealbum.c
 gpinterface.o	: gpinterface.c 
 	 $(CC) -c gpinterface.c
+
 clean	:  
 	   rm -f *.o kgalbum
+	   rm -f $(KULINA)/TARBALL/kgalbum
+
 install	:  kgalbum
 	  install -m 755 -s kgalbum /usr/bin
